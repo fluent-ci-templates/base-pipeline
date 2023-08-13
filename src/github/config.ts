@@ -1,5 +1,4 @@
 import { JobSpec, Workflow } from "fluent_github_actions";
-import { setupDocker } from "./docker.ts";
 
 export function generateYaml() {
   const workflow = new Workflow("base");
@@ -20,12 +19,22 @@ export function generateYaml() {
         uses: "actions/checkout@v2",
       },
       {
-        name: "Show Docker version",
-        run: "docker version",
+        uses: "denolib/setup-deno@v2",
+        with: {
+          "deno-version": "v1.36",
+        },
+      },
+      {
+        name: "Setup Fluent CI CLI",
+        run: "deno install -A -r https://cli.fluentci.io -n fluentci",
       },
       {
         name: "Setup Dagger",
         run: setupDagger,
+      },
+      {
+        name: "List Jobs",
+        run: "fluentci ls .",
       },
     ],
   };
