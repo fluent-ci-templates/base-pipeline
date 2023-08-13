@@ -36,12 +36,14 @@ export function generateYaml() {
         name: "List Jobs",
         run: "fluentci ls .",
       },
+      {
+        name: "Run Dagger Pipelines",
+        run: "dagger run fluentci .",
+      },
     ],
   };
 
   workflow.on({ push }).jobs({ hello });
-
-  console.log(workflow.toString());
 
   workflow.save(".github/workflows/base.yml");
 }
