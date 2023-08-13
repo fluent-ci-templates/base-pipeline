@@ -22,3 +22,5 @@ jobs:
             dagger version
       - name: List Jobs
         run: fluentci ls .
+      - name: Run Dagger Pipelines
+        run: dagger run fluentci .
