@@ -4,7 +4,7 @@ export function generateYaml() {
   const workflow = new Workflow("base");
 
   const push = {
-    branches: ["feat/github-actions-generator"],
+    branches: ["main"],
   };
 
   const setupDagger = `\
@@ -12,7 +12,7 @@ export function generateYaml() {
   sudo mv bin/dagger /usr/local/bin
   dagger version`;
 
-  const hello: JobSpec = {
+  const tests: JobSpec = {
     "runs-on": "ubuntu-latest",
     steps: [
       {
@@ -43,7 +43,7 @@ export function generateYaml() {
     ],
   };
 
-  workflow.on({ push }).jobs({ hello });
+  workflow.on({ push }).jobs({ tests });
 
   workflow.save(".github/workflows/base.yml");
 }

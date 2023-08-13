@@ -4,9 +4,9 @@ name: base
 on:
   push:
     branches:
-      - feat/github-actions-generator
+      - main
 jobs:
-  hello:
+  tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
