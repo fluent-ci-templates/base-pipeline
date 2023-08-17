@@ -13,7 +13,7 @@ src
 │   ├── jobs.ts           : Dagger pipeline jobs
 │   ├── list_jobs.ts      : Used by `fluentci ls` command
 │   ├── pipeline.ts       : Dagger pipeline definition
-│   └── runner.ts         : Used by `dagger fluentci .` command
+│   └── runner.ts         : Used by `dagger run fluentci .` command
 ├── github                : Github Actions YAML Generator
 │   ├── config.ts         : Github Actions Config
 │   ├── init_test.ts      : Github Actions Config Test
