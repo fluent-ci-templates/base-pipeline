@@ -1,6 +1,6 @@
 import { JobSpec, Workflow } from "fluent_github_actions";
 
-export function generateYaml() {
+export function generateYaml(): Workflow {
   const workflow = new Workflow("base");
 
   const push = {
@@ -41,5 +41,5 @@ export function generateYaml() {
 
   workflow.on({ push }).jobs({ tests });
 
-  workflow.save(".github/workflows/base.yml");
+  return workflow;
 }
