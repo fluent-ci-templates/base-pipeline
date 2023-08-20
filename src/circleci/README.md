@@ -1,5 +1,8 @@
 # Circle CI
 
+![deno compatibility](https://shield.deno.dev/deno/^1.34)
+
+
 The following command will generate a `.circleci/config.yml` file in your project:
 
 ```bash

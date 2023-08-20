@@ -1,5 +1,7 @@
 # Github Actions
 
+![deno compatibility](https://shield.deno.dev/deno/^1.34)
+
 The following command will generate a `.github/workflows/base.yml` file in your project:
 
 ```bash

@@ -1,5 +1,7 @@
 # AWS CodePipeline
 
+![deno compatibility](https://shield.deno.dev/deno/^1.34)
+
 The following command will generate a `buildspec.yml` file in your project:
 
 ```bash
