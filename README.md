@@ -16,17 +16,17 @@ src
 ├── aws
 │   ├── config_test.ts    : AWS CodePipeline Config Test
 │   ├── config.ts         : AWS CodePipeline Config
-│   ├── init.ts           : Used by `fluentci ac init` command (coming soon!)
+│   ├── init.ts           : Used by `fluentci ac init` command 
 │   └── README.md         : AWS CodePipeline README
 ├── azure                 : Azure Pipelines YAML Generator
 │   ├── config_test.ts    : Azure Pipelines Config Test
 │   ├── config.ts         : Azure Pipelines Config
-│   ├── init.ts           : Used by `fluentci ap init` command (coming soon!)
+│   ├── init.ts           : Used by `fluentci ap init` command 
 │   └── README.md         : Azure Pipelines README
 ├── circleci              : Circle CI YAML Generator
 │   ├── config_test.ts    : Circle CI Config Test
 │   ├── config.ts         : Circle CI Config
-│   ├── init.ts           : Used by `fluentci cci init` command (coming soon!)
+│   ├── init.ts           : Used by `fluentci cci init` command 
 │   └── README.md         : Circle CI README
 ├── dagger                : Dagger pipeline files
 │   ├── index.ts          : Dagger pipeline entrypoint
@@ -42,6 +42,6 @@ src
 └── gitlab                : Gitlab CI YAML Generator
     ├── config_test.ts    : Gitlab CI Config Test
     ├── config.ts         : Gitlab CI Config
-    ├── init.ts           : Used by `fluentci gl init` command (coming soon!)
+    ├── init.ts           : Used by `fluentci gl init` command 
     └── README.md         : Gitlab CI README
 ```
