@@ -32,7 +32,7 @@ jobs:
           dagger version
       - run:
           name: Run Dagger Pipelines
-          command: dagger run fluentci .
+          command: fluentci run .
     machine:
       image: ubuntu-2004:2023.07.1
 workflows:

@@ -27,7 +27,7 @@ phases:
       - dagger version
   build:
     commands:
-      - dagger run fluentci .
+      - fluentci run .
   post_build:
     commands:
       - echo Build completed on `date`

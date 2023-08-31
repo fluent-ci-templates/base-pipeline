@@ -38,7 +38,7 @@ Generated file:
 base:
   extends: .dagger
   script:
-    - dagger run fluentci .
+    - fluentci run .
 
 ```
 
