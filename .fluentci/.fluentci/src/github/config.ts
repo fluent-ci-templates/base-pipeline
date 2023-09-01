@@ -16,7 +16,7 @@ export function generateYaml() {
     "runs-on": "ubuntu-latest",
     steps: [
       {
-        uses: "actions/checkout@v2",
+        uses: "actions/checkout@v3",
       },
       {
         uses: "denoland/setup-deno@v1",
