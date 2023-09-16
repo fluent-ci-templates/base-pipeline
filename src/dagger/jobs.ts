@@ -4,6 +4,8 @@ export enum Job {
   hello = "hello",
 }
 
+export const exclude = [];
+
 export const hello = async (client: Client, src = ".") => {
   const context = client.host().directory(src);
   const ctr = client
