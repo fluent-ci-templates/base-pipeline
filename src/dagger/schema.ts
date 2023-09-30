@@ -5,7 +5,6 @@ import {
   join,
   resolve,
   stringArg,
-  nonNull,
 } from "../../deps.ts";
 
 import { hello } from "./jobs.ts";
