@@ -1,4 +1,4 @@
-import Client from "../../deps.ts";
+import { client } from "./dagger.ts";
 
 export enum Job {
   hello = "hello",
@@ -6,7 +6,7 @@ export enum Job {
 
 export const exclude = [];
 
-export const hello = async (client: Client, src = ".") => {
+export const hello = async (src = ".") => {
   const context = client.host().directory(src);
   const ctr = client
     .pipeline("hello")
@@ -18,21 +18,17 @@ export const hello = async (client: Client, src = ".") => {
 
   const result = await ctr.stdout();
 
-  console.log(result);
+  return result.replace(/(\r\n|\n|\r)/gm, "");
 };
 
-export type JobExec = (
-  client: Client,
-  src?: string
-) =>
-  | Promise<void>
+export type JobExec = (src?: string) =>
+  | Promise<string>
   | ((
-      client: Client,
       src?: string,
       options?: {
         ignore: string[];
       }
-    ) => Promise<void>);
+    ) => Promise<string>);
 
 export const runnableJobs: Record<Job, JobExec> = {
   [Job.hello]: hello,
