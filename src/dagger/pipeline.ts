@@ -8,7 +8,7 @@ export default async function pipeline(src = ".", args: string[] = []) {
     await uploadContext(src, exclude);
   }
   if (args.length > 0) {
-    await runSpecificJobs(client, args as jobs.Job[]);
+    await runSpecificJobs(args as jobs.Job[]);
     return;
   }
 
