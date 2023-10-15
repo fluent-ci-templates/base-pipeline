@@ -1,5 +1,5 @@
 {
   "root": "",
   "name": "base",
-  "sdk": "deno"
+  "sdkRuntime": "tsiry/dagger-sdk-deno"
 }

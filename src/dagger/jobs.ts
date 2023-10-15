@@ -1,4 +1,4 @@
-import { client } from "./dagger.ts";
+import Client, { connect } from "../../deps.ts";
 
 export enum Job {
   hello = "hello",
@@ -7,16 +7,19 @@ export enum Job {
 export const exclude = [];
 
 export const hello = async (src = ".") => {
-  const context = client.host().directory(src);
-  const ctr = client
-    .pipeline("hello")
-    .container()
-    .from("alpine")
-    .withDirectory("/app", context)
-    .withWorkdir("/app")
-    .withExec(["echo", "'Hello, world!'"]);
+  let result = "";
+  await connect(async (client: Client) => {
+    const context = client.host().directory(src);
+    const ctr = client
+      .pipeline("hello")
+      .container()
+      .from("alpine")
+      .withDirectory("/app", context)
+      .withWorkdir("/app")
+      .withExec(["echo", "'Hello, world!'"]);
 
-  const result = await ctr.stdout();
+    result = await ctr.stdout();
+  });
 
   return result.replace(/(\r\n|\n|\r)/gm, "");
 };
