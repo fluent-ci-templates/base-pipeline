@@ -20,6 +20,3 @@ jobs:
         run: |
           dagger query --doc hello.gql
         working-directory: example
-        env:
-          _EXPERIMENTAL_DAGGER_CLI_BIN: /usr/local/bin/dagger
-          _EXPERIMENTAL_DAGGER_RUNNER_HOST: docker-container://dagger-engine.dev
