@@ -15,7 +15,7 @@ const Query = queryType({
       args: {
         src: stringArg(),
       },
-      resolve: async (_root, args, _ctx) => await hello(args.src!),
+      resolve: async (_root, args, _ctx) => await hello(args.src || undefined),
     });
   },
 });
