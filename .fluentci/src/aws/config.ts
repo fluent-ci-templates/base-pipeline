@@ -1,7 +1,7 @@
-import { BuildSpec } from "fluent_aws_codepipeline";
+import { FluentAWSCodePipeline } from "../../deps.ts";
 
-export function generateYaml(): BuildSpec {
-  const buildspec = new BuildSpec();
+export function generateYaml(): FluentAWSCodePipeline.BuildSpec {
+  const buildspec = new FluentAWSCodePipeline.BuildSpec();
   buildspec
     .phase("install", {
       commands: [
@@ -9,13 +9,13 @@ export function generateYaml(): BuildSpec {
         'export DENO_INSTALL="$HOME/.deno"',
         'export PATH="$DENO_INSTALL/bin:$PATH"',
         "deno install -A -r https://cli.fluentci.io -n fluentci",
-        "curl -L https://dl.dagger.io/dagger/install.sh | DAGGER_VERSION=0.8.1 sh",
+        "curl -L https://dl.dagger.io/dagger/install.sh | DAGGER_VERSION=0.9.3 sh",
         "mv bin/dagger /usr/local/bin",
         "dagger version",
       ],
     })
     .phase("build", {
-      commands: ["dagger run fluentci deno_pipeline fmt lint test"],
+      commands: ["fluentci run deno_pipeline fmt lint test"],
     })
     .phase("post_build", {
       commands: ["echo Build completed on `date`"],
