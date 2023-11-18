@@ -1,4 +1,8 @@
-import { ConnectOpts, connect as defaultConnect } from "../deps.ts";
+import {
+  ConnectOpts,
+  connect as defaultConnect,
+  CallbackFct as DefaultCallbackFct,
+} from "../deps.ts";
 import { Client } from "./client.gen.ts";
 
 export type CallbackFct = (client: Client) => Promise<void>;
@@ -8,7 +12,7 @@ export async function connect(
   config: ConnectOpts = {}
 ): Promise<void> {
   if (!Deno.env.has("FLUENTCI_TOKEN") || !Deno.env.has("FLUENTCI_SESSION_ID")) {
-    return defaultConnect(cb, config);
+    return defaultConnect(cb as unknown as DefaultCallbackFct, config);
   }
 
   const client = new Client({
