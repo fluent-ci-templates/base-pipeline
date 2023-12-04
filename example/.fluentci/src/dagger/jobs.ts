@@ -34,7 +34,14 @@ export async function hello(
   return result.replace(/(\r\n|\n|\r)/gm, "");
 }
 
-export type JobExec = (src?: string) => Promise<string>;
+export type JobExec = (src?: string) =>
+  | Promise<string>
+  | ((
+      src?: string,
+      options?: {
+        ignore: string[];
+      }
+    ) => Promise<string>);
 
 export const runnableJobs: Record<Job, JobExec> = {
   [Job.hello]: hello,
