@@ -130,12 +130,15 @@ async function computeNestedQuery(
  * @returns
  */
 export function buildQuery(q: QueryTree[]): string {
+  console.log(q);
   const query = q.reduce((acc, { operation, args }, i) => {
     const qLen = q.length;
+    console.log(qLen);
 
     acc += ` ${operation} ${args ? `${buildArgs(args)}` : ""} ${
       qLen - 1 !== i ? "{" : "}".repeat(qLen - 1)
     }`;
+    console.log(acc);
 
     return acc;
   }, "");
