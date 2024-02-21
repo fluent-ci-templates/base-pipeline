@@ -18,5 +18,5 @@ jobs:
           dagger version
       - name: Run Dagger Pipelines
         run: |
-          dagger call hello --src .
+          dagger call hello
         working-directory: example
