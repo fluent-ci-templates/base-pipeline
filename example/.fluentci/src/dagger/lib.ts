@@ -1,13 +1,24 @@
 import Client, { Directory, DirectoryID } from "../../deps.ts";
 
-export const getDirectory = (
+export const getDirectory = async (
   client: Client,
   src: string | Directory | undefined = "."
 ) => {
-  if (typeof src === "string" && src.startsWith("core.Directory")) {
-    return client.directory({
-      id: src as DirectoryID,
-    });
+  if (src instanceof Directory) {
+    return src;
   }
-  return src instanceof Directory ? src : client.host().directory(src);
+  if (typeof src === "string") {
+    try {
+      const directory = client.loadDirectoryFromID(src as DirectoryID);
+      await directory.id();
+      return directory;
+    } catch (_) {
+      return client.host
+        ? client.host().directory(src)
+        : client.currentModule().source().directory(src);
+    }
+  }
+  return client.host
+    ? client.host().directory(src)
+    : client.currentModule().source().directory(src);
 };
