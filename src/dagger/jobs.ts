@@ -16,7 +16,7 @@ export const exclude = [];
 export async function hello(
   src: string | Directory | undefined = "."
 ): Promise<string> {
-  const context = getDirectory(dag, src);
+  const context = await getDirectory(dag, src);
   const ctr = dag
     .pipeline("hello")
     .container()
