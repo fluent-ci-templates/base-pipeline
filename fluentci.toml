@@ -1,0 +1,8 @@
+[package]
+authors = [
+  "Tsiry Sandratraina <tsiry.sndr@fluentci.io>",
+]
+description = "A Minimal FluentCI Pipeline"
+license = "MIT"
+name = "base"
+version = "0.10.1"
