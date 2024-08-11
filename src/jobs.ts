@@ -1,5 +1,5 @@
-import { Directory, dag } from "../../deps.ts";
-import { getDirectory } from "./lib.ts";
+import { Directory, dag } from "../deps.ts";
+import { getDirectory } from "./helpers.ts";
 
 export enum Job {
   hello = "hello",

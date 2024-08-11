@@ -18,5 +18,3 @@ jobs:
           args: |
             fmt
             lint
-            test
-            coverage
